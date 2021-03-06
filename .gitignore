@@ -1,0 +1,7 @@
+build/
+dist/
+env/
+nohup.out
+__pycache__/
+test.spec
+file.log
