@@ -5,3 +5,5 @@ nohup.out
 __pycache__/
 test.spec
 file.log
+data.py
+email_send.spec
