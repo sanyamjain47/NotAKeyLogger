@@ -11,7 +11,7 @@ def email_threading():
 	
 	if os.path.exists(os.path.expanduser(data.path)):
   		open(os.path.expanduser(data.path), 'w').close()
-	t = threading.Timer(1800, email_threading)
+	t = threading.Timer(data.time_seconds, email_threading)
 	t.start()
 
 email_threading()
