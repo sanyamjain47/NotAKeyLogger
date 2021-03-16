@@ -32,8 +32,7 @@ def OnKeyRelease(key):
 def OnMouseClick(x, y, button, pressed):
 	if pressed:
 		with open(log_file, 'a') as f: 
-			f.write(f"Click
-			\n")
+			f.write(f"Click\n")
 
 def OnScroll(x,y,dx,dy):
 	pass
