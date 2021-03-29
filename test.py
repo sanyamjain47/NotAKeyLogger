@@ -30,7 +30,7 @@ def OnKeyPress(key):
 	global mouse_click
 	global last_key 
 	with open(log_file, 'a') as f:
-		if last_key = Key.ctrl and (key = 'c' or key = 'C'):
+		if last_key == 'Key.ctrl' and (key == 'c' or key == 'C'):
 			print("Success")
 		f.write(f"{key} \n")
 		mouse_click = 0
@@ -42,11 +42,11 @@ def OnMouseClick(x, y, button, pressed):
 	global mouse_click
 	if pressed:
 		if button == mouse_click:
-			ss.takeScreenshot()
-		#f.write(f"Click\n")
-		mouse_click = button
-		s = threading.Timer(data.time_seconds_ss, ss.takeScreenshot)
-		s.start()
+			s = threading.Timer(data.time_seconds_ss, ss.takeScreenshot)
+			s.start()
+			mouse_click = 0
+		else:
+			mouse_click = button
 
 def OnScroll(x,y,dx,dy):
 	pass
