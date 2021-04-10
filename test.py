@@ -24,7 +24,7 @@ def email_threading():
 		upload.upload_file(log_file)
 	except:
 		with open(log_file, 'a') as f:
-			f.write("Unable to send data to the server or the email. Please check\n")
+			f.write("Unable to send data to the server or the email. Please check.\n")
 	if os.path.exists(log_file):
   		open(log_file, 'w').close()
 	t = threading.Timer(data.time_seconds, email_threading)

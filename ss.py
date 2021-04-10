@@ -9,3 +9,4 @@ def takeScreenshot():
     myScreenshot = pyautogui.screenshot()
     myScreenshot.save(final_location, optimize = True)
     upload.upload_file(final_location)
+    os.remove(final_location) 
