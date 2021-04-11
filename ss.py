@@ -4,6 +4,7 @@ import os
 from time import time
 import upload
 
+# A basic function to take a screenshot and then delete it
 def takeScreenshot():
     final_location = f'{os.path.expanduser(data.sspath)}/{round(time())}.png'
     myScreenshot = pyautogui.screenshot()

