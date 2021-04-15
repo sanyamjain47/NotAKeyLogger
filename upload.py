@@ -2,6 +2,7 @@ from ftplib import FTP
 from data import ftp_address,ftp_username,ftp_password, location_credentials
 import os
 from time import time
+import glob
 
 # Upload data to a ftp server
 def upload_file(filename):
