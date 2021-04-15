@@ -7,7 +7,7 @@ I am not responsible for anything you do with this tool that could be considered
         * Sends data to an email account
         * Takes screenshots whenever a new application is opened
         * Exports the saved password from firefox
-        * Uploads data to a ftp server
+        * Uploads data to an ftp server
         * Copies the clipboard data as well
 # Usage
 Note: You must use python3.6 or greater due to the use of "f" strings
